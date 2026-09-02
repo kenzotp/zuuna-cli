@@ -85,6 +85,7 @@ The URL is a parameter. Nothing is hardcoded to a particular host, so this works
 - [Releases](https://zuuna.de/en/features/releases) — versions bound to git tags
 - [REST API and webhooks](https://zuuna.de/en/features/developer-platform) — the endpoints this script calls
 - [zuuna-webhook-verify](https://github.com/kenzotp/zuuna-webhook-verify) — verifying the signature on an outbound webhook, in Node or Python
+- [zuuna-action](https://github.com/kenzotp/zuuna-action) — this script, wrapped as a GitHub Action
 
 ## Licence
 
