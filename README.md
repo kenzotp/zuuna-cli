@@ -1,5 +1,7 @@
 # zuuna
 
+[![shellcheck](https://github.com/kenzotp/zuuna-cli/actions/workflows/shellcheck.yml/badge.svg)](https://github.com/kenzotp/zuuna-cli/actions/workflows/shellcheck.yml)
+
 A single-file shell script that links local git activity to cards on a [Zuuna](https://zuuna.de) board, and cuts releases from git tags.
 
 No dependencies beyond `git` and `curl`. `release` and `plan` also want `jq`.
@@ -82,6 +84,7 @@ The URL is a parameter. Nothing is hardcoded to a particular host, so this works
 - [Git on the board](https://zuuna.de/en/features/git-integration) — what lands on a card
 - [Releases](https://zuuna.de/en/features/releases) — versions bound to git tags
 - [REST API and webhooks](https://zuuna.de/en/features/developer-platform) — the endpoints this script calls
+- [zuuna-webhook-verify](https://github.com/kenzotp/zuuna-webhook-verify) — verifying the signature on an outbound webhook, in Node or Python
 
 ## Licence
 
