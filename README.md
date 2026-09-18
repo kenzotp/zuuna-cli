@@ -90,3 +90,7 @@ The URL is a parameter. Nothing is hardcoded to a particular host, so this works
 ## Licence
 
 MIT. See [LICENSE](LICENSE).
+
+## Live demo
+
+Watch the board move itself: <https://app.zuuna.de/demo> — a public read-only board driven by this very repository.
