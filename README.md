@@ -10,6 +10,8 @@ See it happen — a commit moves the card (30 s, real CLI):
 
 ![zuuna: a commit moves the card](demo/zuuna-demo.gif)
 
+The same loop, run by an agent: [demo/agent-run.gif](demo/agent-run.gif) records a ZCode (GLM) agent session — MCP tools read the work, the agent opens the PR, and the merge itself closes card CLI-3 on the public demo board at [app.zuuna.de/demo](https://app.zuuna.de/demo).
+
 ---
 
 ## Quickstart: from nothing to a moved card
