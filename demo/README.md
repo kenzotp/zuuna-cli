@@ -44,3 +44,37 @@ agg --font-size 13 --theme github-dark --speed 1.4 zuuna-demo.cast zuuna-demo.gi
 
 `driver.sh` is the exact driver used; it needs `ZUUNA_URL` and `ZUUNA_TOKEN`
 exported and a card in the `To do` column whose key appears in the commit line.
+
+---
+
+## The agent-run demo: an agent works the board, git keeps it honest
+
+![an agent-run sprint: an MCP session, a PR, and the merge closes the card](agent-run.gif)
+
+`agent-run.gif` / `agent-run.cast` — recorded 2026-09-22, session starring
+**ZCode agent (GLM)**. Everything on screen is a real tool call and a real
+commit, run against this public repository and the **public demo board**
+([app.zuuna.de/demo](https://app.zuuna.de/demo), read-only for everyone):
+
+1. A real MCP client session opens the published [`mcp-server-zuuna`](https://www.npmjs.com/package/mcp-server-zuuna)
+   (stdio): initialize, `tools/list`, `zuuna_me`.
+2. The agent picks up card `CLI-3` (shipped the previous sprint) and continues
+   work on it: one line in the README, pointing at the very recording being made.
+3. The commit is pushed, the PR is opened and merged — and nobody touches the
+   board. The board's own git-truth automations do the moving: the push moved
+   `CLI-3` to *In Progress*, the merge closed it back to *Done*.
+
+One honest footnote: the MCP step shows the server handshake, the tool list and
+the token identity. The demo board lives in its own demo org (API tokens are
+org-scoped and the demo org seeds none by design), so the board reads on screen
+come from the public `/demo` page itself — the same view any visitor gets.
+
+`agent-run-driver.sh` is the exact driver of the recording; the two helper
+scripts and the MCP client it runs are in this directory. It needs
+`ZUUNA_API_TOKEN` exported and `gh` authenticated. Commands are shown exactly
+as executed. Regenerate the GIF with:
+
+```bash
+asciinema rec --idle-time-limit 1.2 agent-run.cast -c "bash demo/agent-run-driver.sh"
+agg --font-size 13 --theme github-dark --speed 2 agent-run.cast agent-run.gif
+```
