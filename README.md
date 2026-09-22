@@ -6,9 +6,9 @@ A single-file shell script that links local git activity to cards on a [Zuuna](h
 
 No dependencies beyond `git` and `curl`. `release` and `plan` also want `jq`.
 
-See it happen — a commit moves the card (30 s, real CLI):
+See it happen: with a board rule in place, a commit moves the card (30 s, real CLI):
 
-![zuuna: a commit moves the card](demo/zuuna-demo.gif)
+![zuuna: a commit moves the card through a board rule](demo/zuuna-demo.gif)
 
 The same loop, run by an agent: [demo/agent-run.gif](demo/agent-run.gif) records a ZCode (GLM) agent session — MCP tools read the work, the agent opens the PR, and the merge itself closes card CLI-3 on the public demo board at [app.zuuna.de/demo](https://app.zuuna.de/demo).
 
@@ -79,10 +79,10 @@ So position decides intent:
 
 | Where the key appears | Treated as | Effect on the card |
 |---|---|---|
-| Commit **subject** line | Work | Links the commit, moves the card |
-| **Branch** name | Work | Links the branch, moves the card |
-| Commit **body**, behind `ref:` / `see:` | Reference only | Links, does not move |
-| Commit body, bare | Reference only | Links, does not move |
+| Commit **subject** line | Work | Links the commit, fires your board rules |
+| **Branch** name | Work | Links the branch, fires your board rules |
+| Commit **body**, behind `ref:` / `see:` | Reference only | Links only, fires no rules |
+| Commit body, bare | Reference only | Links only, fires no rules |
 
 ```
 UNI-42: rewrite the token refresh          → work on UNI-42
